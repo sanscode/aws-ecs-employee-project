@@ -1,0 +1,6 @@
+flask
+requests
+pymysql
+flask-sqlalchemy
+PyMySQL[rsa]
+cryptography

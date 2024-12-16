@@ -1,0 +1,17 @@
+FROM ubuntu:18.04
+
+RUN apt-get update && apt-get install -y python-pip python-dev
+
+COPY ./requirements.txt /app/getemp/requirements.txt
+
+WORKDIR /app/getemp
+RUN pip install -r requirements.txt
+COPY ./src/getemp/get_employee.py /app/getemp/get_employee.py
+
+COPY ./src/getemp/templates/getemp.html /app/getemp/templates/getemp.html
+COPY ./src/getemp/templates/getempoutput.html /app/getemp/templates/getempoutput.html
+
+EXPOSE 8080
+
+ENTRYPOINT ["python2", "GetEmp.py"]
+
